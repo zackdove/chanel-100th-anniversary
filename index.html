@@ -5,27 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Website</title>
-    <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header>
-      <nav id="nyt-main-nav">
+    <nav id="nyt-main-nav">
+      <div>
+        <img src="./images/menu.svg" alt="Main Menu" />
+        <img src="./images/search.svg" alt="Search" />
+      </div>
+      <div>
+        <a href="#">
+          <img src="images/The_New_York_Times.svg" alt="New York Times Logo"
+        /></a>
+      </div>
+      <div>
+        <span>Account</span
+        ><img
+          src="./images/downwards-arrow.svg"
+          alt="Downwards Arrow"
+          class="inline-icon"
+        />
+      </div>
+    </nav>
+    <header id="article-header">
+      <div>
+        <a href="#">
+          <img src="./images/chanel-logo-black.svg" alt="Chanel Logo"
+        /></a>
+      </div>
+      <div id="paid-post">
+        <span>PAID POST</span
+        ><img
+          src="./images/question-mark.svg"
+          alt="Question Mark"
+          class="inline-icon"
+        />
+      </div>
+      <div id="share-article">
+        <span>Share</span
+        ><img
+          src="./images/share-arrow.svg"
+          alt="Share Arrow"
+          class="inline-icon"
+        />
+      </div>
+    </header>
+
+    <main>
+      <section id="title">
+        <menu onclick="handleMenuClick(this)">
+          <div class="menu-title">
+            <img src="./images/gem.svg" alt="Menu Gem" class="menu-gem" />
+            <div class="menu-title-text">MENU</div>
+            <img
+              src="./images/menu-white.svg"
+              alt="Menu Hamburger"
+              class="menu-hamburger white"
+            />
+            <img
+              src="./images/menu.svg"
+              alt="Menu Hamburger"
+              class="menu-hamburger black"
+            />
+          </div>
+          <div class="menu-list">
+            <a href="#introduction">INTRODUCTION</a>
+            <a href="#gabrielle">GABRIELLE CHANEL</a>
+            <a href="#iconicno5">THE ICONIC N°5</a>
+            <a href="#savoir">SAVOIR FAIRE</a>
+            <a href="#necklace">THE NECKLACE</a>
+            <img
+              src="./images/close.svg"
+              alt="Close Menu"
+              class="menu-close"
+              onclick="handleMenuClose(this, event)"
+            />
+          </div>
+        </menu>
+        <h2>THE ANATOMY OF THE</h2>
+        <h1>55.55</h1>
+        <h3>
+          The Iconic CHANEL N°5 Celebrates 100 Years With a Magnificent Work of
+          Art
+        </h3>
+        <img src="./images/gem-1.png" alt="Crystal Gem" id="title-gem" />
+      </section>
+
+      <section id="introduction" class="centred-container">
+        <menu onclick="handleMenuClick(this)">
+          <div class="menu-title">
+            <img src="./images/gem.svg" alt="Menu Gem" class="menu-gem" />
+            <div class="menu-title-text">INTRODUCTION</div>
+            <img
+              src="./images/menu-white.svg"
+              alt="Menu Hamburger"
+              class="menu-hamburger white"
+            />
+            <img
+              src="./images/menu.svg"
+              alt="Menu Hamburger"
+              class="menu-hamburger black"
+            />
+          </div>
+          <div class="menu-list">
+            <a href="#introduction">INTRODUCTION</a>
+            <a href="#gabrielle">GABRIELLE CHANEL</a>
+            <a href="#iconicno5">THE ICONIC N°5</a>
+            <a href="#savoir">SAVOIR FAIRE</a>
+            <a href="#necklace">THE NECKLACE</a>
+            <img
+              src="./images/close.svg"
+              alt="Close Menu"
+              class="menu-close"
+              onclick="handleMenuClose(this, event)"
+            />
+          </div>
+        </menu>
         <div>
-          <img src="./images/menu.svg" alt="Main Menu" />
-          <img src="./images/search.svg" alt="Search" />
+          To honor 100 years of the luxury brand’s iconic CHANEL N°5 fragrance,
+          Patrice Leguéreau, director of the Fine Jewelry Creation Studio and
+          master jeweler, has imagined an exquisite and incomparable collection
+          of 123 pieces, the “Collection N°5.” As part of this assemblage, he
+          was inspired to create a singular necklace, a work of meticulous
+          craftsmanship and beauty that interprets the eternal mystery of the
+          legendary perfume.
         </div>
-        <div>
-          <a href="#">
-            <img src="images/The_New_York_Times.svg" alt="New York Times Logo"
-          /></a>
-        </div>
-        <div>
-          <span>Account</span
-          ><img
-            src="./images/downwards-arrow.svg"
-            alt="Downwards Arrow"
-            class="inline-icon"
+      </section>
           />
         </div>
       </nav>
@@ -54,6 +166,7 @@
       </div>
     </header>
     <main></main>
+    </main>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
