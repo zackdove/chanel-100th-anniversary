@@ -18,9 +18,14 @@ $horizontal-padding: min(158px, 5vw);
 $mobile-breakpoint: 768px;
 $mobile-text-width: 360px;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: nyt-franklin, helvetica, arial, sans-serif;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -45,15 +50,19 @@ h5 {
       cursor: pointer;
     }
   }
-  :nth-child(1) {
+  > *:nth-child(1) {
     text-align: left;
   }
-  :nth-child(2) {
+  > *:nth-child(2) {
     text-align: center;
   }
-  :nth-child(3) {
+  > *:nth-child(3) {
     text-align: right;
   }
+}
+
+.pr-16 {
+  padding-right: 16px;
 }
 
 #nyt-main-nav {
@@ -149,6 +158,7 @@ menu {
       display: block;
       color: #a4a4a4;
       text-decoration: none;
+      transition: color 0.3s;
     }
     .menu-close {
       position: absolute;
@@ -194,4 +204,371 @@ menu {
     margin: 60px auto;
   }
 }
+
+#title {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding-left: $horizontal-padding;
+  padding-top: 160px;
+  height: 80vh;
+  h2 {
+    font-size: 50px;
+    font-weight: 600;
+  }
+  h1 {
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #fff;
+    font-size: min(500px, 30vw);
+    font-weight: 400;
+    letter-spacing: -0.082em;
+    line-height: 0.8em;
+    position: relative;
+    left: -0.07em;
+    color: transparent;
+  }
+  h3 {
+    font-size: 25px;
+    font-weight: 400;
+    width: 522px;
+    padding-top: 32px;
+  }
+  #title-gem {
+    display: none;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    align-items: center;
+    padding: 0;
+    height: auto;
+    h2 {
+      font-size: 25px;
+    }
+    h1 {
+      font-size: 160px;
+      letter-spacing: -19px;
+    }
+    h3 {
+      font-size: 18px;
+      width: auto;
+      max-width: $mobile-text-width;
+      padding-top: 0;
+    }
+    #title-gem {
+      display: block;
+      width: min(340px, 80vw);
+    }
+  }
+}
+
+section {
+  position: relative;
+  padding: 208px 0;
+  &.white {
+    background-color: white;
+    color: black;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    padding: 20px 0;
+  }
+}
+
+.centred-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  > div {
+    max-width: 526px;
+    > div {
+      padding: 16px 0;
+    }
+  }
+  @media (max-width: $mobile-breakpoint) {
+    display: block;
+    padding: 128px 12px;
+    min-height: auto;
+    > div {
+      // width: $mobile-text-width;
+      width: 100%;
+      max-width: $mobile-text-width;
+      margin: auto;
+    }
+  }
+  &.big {
+    min-height: auto;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 62px;
+    letter-spacing: 0px;
+    text-align: center;
+    padding: 120px 0;
+    > div {
+      width: 70%;
+      max-width: 865px;
+    }
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+      text-align: left;
+      > div {
+        width: 100%;
+        max-width: $mobile-text-width;
+        margin: auto;
+      }
+    }
+  }
+  &.medium {
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37px;
+    text-align: center;
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+  }
+}
+
+.dual-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 128px;
+  padding: 0 128px;
+  font-family: Poppins;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+
+  > img {
+    width: 40vw;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    gap: 0;
+    &.reverse {
+      flex-direction: column-reverse;
+    }
+    > img,
+    div {
+      width: 100%;
+      max-width: $mobile-text-width;
+      margin: auto;
+      display: block;
+      padding: 32px 0;
+    }
+  }
+  .dual-text-smaller {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    > div {
+      padding: 16px 0;
+    }
+  }
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  padding: 128px 0 128px 128px;
+  gap: 128px;
+  > img {
+    width: 37vw;
+  }
+  > .quote-wrapper {
+    max-width: 630px;
+    > .quote {
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 34px;
+    }
+    > .quote-author {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      padding-top: 32px;
+    }
+  }
+  @media (max-width: $mobile-breakpoint) {
+    display: block;
+    padding: 0;
+    > .quote-wrapper {
+      padding: 12px;
+      max-width: $mobile-text-width;
+      margin: auto;
+      > .quote {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      > .quote-author {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+    > img {
+      max-width: 90%;
+      width: 340px;
+      margin-left: auto;
+      display: block;
+    }
+  }
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 43px;
+  column-gap: 16px;
+  row-gap: 16px;
+  img {
+    width: 100%;
+    display: block;
+  }
+  #shopfront {
+    align-self: end;
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  #bw-jewelry {
+    grid-row-end: span 2;
+    grid-column-start: 2;
+  }
+  #necklace-on-dummy {
+    width: 60%;
+    align-self: end;
+    grid-column-start: 3;
+    grid-row-start: 1;
+  }
+  #inspection {
+    width: 85%;
+    justify-self: right;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    display: block;
+    padding: 0;
+    #shopfront {
+      padding-left: 12px;
+      width: 55%;
+      padding-top: 55px;
+    }
+    #inspection {
+      padding-right: 12px;
+      width: 60%;
+      margin-left: auto;
+      padding-top: 42px;
+    }
+    #necklace-on-dummy {
+      width: 57%;
+      padding-left: 12px;
+      padding-top: 45px;
+    }
+    #blueprint {
+      padding-right: 12px;
+      width: 60%;
+      margin-left: auto;
+      padding-top: 45px;
+    }
+  }
+}
+
+.fullscreen-video {
+  width: 100vw;
+  min-height: 80vh;
+  object-fit: cover;
+}
+
+#chanel-cta {
+  background-color: white;
+  color: black;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 49px;
+  text-align: center;
+  padding: 80px 32px;
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .chanel-logo {
+    width: 300px;
+    margin: auto;
+    display: block;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+}
+
+footer {
+  .post-role-message {
+    font-family: Source Sans Pro, Arial;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    background-color: #f7f7f7;
+    padding: 12px;
+    color: #686868;
+  }
+  nav {
+    border-top: 1px solid #e2e2e2;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #6f6f6f;
+    column-gap: 12px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    row-gap: 12px;
+    > div {
+      display: flex;
+      flex-direction: row;
+      column-gap: inherit;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
